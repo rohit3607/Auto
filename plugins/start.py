@@ -11,10 +11,11 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
+from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, TIME
 from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 
+SECONDS = TIME
 
 
 
@@ -83,6 +84,17 @@ async def start_command(client: Client, message: Message):
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
             except:
                 pass
+                if SECONDS == 0:
+                    return
+                notification_msg = await message.reply(f"<b>🌺 <u>Notice</u> 🌺</b>\n\n<b>This file will be deleted in {get_exp_time(SECONDS)}. Please save or forward it to your saved messages before it gets deleted.</b>")
+                await asyncio.sleep(SECONDS)    
+                for snt_msg in snt_msgs:    
+                    try:    
+                        await snt_msg.delete()  
+                    except: 
+                        pass    
+                await notification_msg.edit("<b>Your file has been successfully deleted! 😼</b>")  
+                return
         return
     else:
         reply_markup = InlineKeyboardMarkup(

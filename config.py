@@ -37,10 +37,10 @@ FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #Time in seconds for message delete, put 0 to never delete
-TIME = int(os.environ.get("TIME", "60"))
+TIME = int(os.environ.get("TIME", "600"))
 
 #start message
-START_MSG = os.environ.get("START_MESSAGE", "<i>Hello {first} ✨\n\n I am a file store bot Powered by @AnimesStores ⚡️</i>")
+START_MSG = os.environ.get("START_MESSAGE", "<b>Hello {first} ✨\n\n I am a file store bot Powered by @AnimesStores ⚡️</b>")
 try:
     ADMINS=[]
     for x in (os.environ.get("ADMINS", "").split()):
@@ -49,20 +49,20 @@ except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
 
 #Force sub message 
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<i>Hello {first} ✨\n\n Please Join Our Update Channels To Continue Watching Your Favourite Anime ⚡️</i>")
+FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>Hello {first} ✨\n\n Please Join Our Update Channels To Continue Watching Your Favourite Anime ⚡️</b>")
 
 #set your Custom Caption here, Keep None for Disable Custom Caption
 
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @rohit_1888</b>")
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<i><b>‣Use VLC OR MX Player To Change Audio & Subtitle Accordingly.</b></i>")
 
 #set True if you want to prevent users from forwarding files from bot
-PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "True") == "True" else False
+PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False
 
 #Set true if you want Disable your Channel Posts Share button
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
 
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
-USER_REPLY_TEXT = "Join @Animes_Stores For More Anime !!"
+USER_REPLY_TEXT = None
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(1250450587)

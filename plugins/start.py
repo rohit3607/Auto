@@ -79,14 +79,14 @@ async def start_command(client: Client, message: Message):
                 pass
 
         if SECONDS != 0:
-            notification_msg = await message.reply(f"<b>‼️ Forward the Files to Saved Messages or somewhere else before Downloading it.</b>\n\n<b>it will get Delete after {get_exp_time(SECONDS)}.‼️</b>")
+            notification_msg = await message.reply(f"<b>❗️Forward the Files to Saved Messages or somewhere else before Downloading it.</b>\n\n<b>it will get Delete after {get_exp_time(SECONDS)}.❗️</b>")
             await asyncio.sleep(SECONDS)
             for snt_msg in snt_msgs:
                 try:
                     await snt_msg.delete()
                 except:
                     pass
-            await notification_msg.edit("<b>Your file has been successfully deleted ❗❗</b>")
+            await notification_msg.edit("<b>Your file has been successfully deleted❗️</b>")
 
         return
     else:

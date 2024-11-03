@@ -36,6 +36,9 @@ FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
+#Time in seconds for message delete, put 0 to never delete
+TIME = int(os.environ.get("TIME", "60"))
+
 #start message
 START_MSG = os.environ.get("START_MESSAGE", "<i>Hello {first} ✨\n\n I am a file store bot Powered by @AnimesStores ⚡️</i>")
 try:

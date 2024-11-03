@@ -43,11 +43,11 @@
     },
     "START_MESSAGE": {
       "description": "Optional: start message of bot, use HTML parsemode format",
-      "value": "<i>Hello {first} ✨\n\n I am a file store bot Powered by @AnimesStores ⚡️</i>"
+      "value": "<b>Hello {first} ✨\n\n I am a file store bot Powered by @AnimesStores ⚡️</b>"
     },
     "FORCE_SUB_MESSAGE": {
       "description": "Optional: Force Sub message of bot, use HTML parsemode format",
-      "value": "<i>Hello {first} ✨\n\n Please Join Our Update Channels To Continue Watching Your Favourite Anime ⚡️</i>"
+      "value": "<b>Hello {first} ✨\n\n Please Join Our Update Channels To Continue Watching Your Favourite Anime ⚡️</b>"
     },
     "ADMINS": {
       "description": "A space separated list of user_ids of Admins, they can only create links",
@@ -56,7 +56,7 @@
     },
     "PROTECT_CONTENT": {
       "description": "Protect contents from getting forwarded",
-      "value": "True",
+      "value": "False",
       "required": false
     }
   },

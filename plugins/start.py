@@ -86,8 +86,6 @@ async def start_command(client: Client, message: Message):
                     await snt_msg.delete()
                 except:
                     pass
-            await notification_msg.edit("<b>Your file has been successfully deleted❗️</b>")
-
         return
     else:
         reply_markup = InlineKeyboardMarkup(

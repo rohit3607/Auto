@@ -79,7 +79,7 @@ async def start_command(client: Client, message: Message):
                 pass
 
         if SECONDS != 0:
-            notification_msg = await message.reply(f"<b>❗❗ <u>Notice</u> ❗❗</b>\n\n<b>This file will be deleted in {get_exp_time(SECONDS)}. Please save or forward it to your saved messages before it gets deleted.</b>")
+            notification_msg = await message.reply(f"<b>‼️ Forward the Files to Saved Messages or somewhere else before Downloading it.</b>\n\n<b>it will get Delete after {get_exp_time(SECONDS)}.‼️</b>")
             await asyncio.sleep(SECONDS)
             for snt_msg in snt_msgs:
                 try:

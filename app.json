@@ -43,11 +43,11 @@
     },
     "START_MESSAGE": {
       "description": "Optional: start message of bot, use HTML parsemode format",
-      "value": "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link."
+      "value": "<i>Hello {first} ✨\n\n I am a file store bot Powered by @AnimesStores ⚡️</i>"
     },
     "FORCE_SUB_MESSAGE": {
       "description": "Optional: Force Sub message of bot, use HTML parsemode format",
-      "value": "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel</b>"
+      "value": "<i>Hello {first} ✨\n\n Please Join Our Update Channels To Continue Watching Your Favourite Anime ⚡️</i>"
     },
     "ADMINS": {
       "description": "A space separated list of user_ids of Admins, they can only create links",
@@ -56,7 +56,7 @@
     },
     "PROTECT_CONTENT": {
       "description": "Protect contents from getting forwarded",
-      "value": "False",
+      "value": "True",
       "required": false
     }
   },

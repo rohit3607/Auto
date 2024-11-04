@@ -79,7 +79,7 @@ async def start_command(client: Client, message: Message):
                 pass
 
         if SECONDS != 0:
-            notification_msg = await message.reply(f"<b>❗️Forward the Files to Saved Messages or somewhere else before Downloading it.</b>\n\n<b>it will get Delete after {get_exp_time(SECONDS)}.❗️</b>")
+            notification_msg = await message.reply(f"<b>‼️Forward the Files to Saved Messages or somewhere else before Downloading it.</b>\n<b>it will get Delete after {get_exp_time(SECONDS)}.‼️</b>")
             await asyncio.sleep(SECONDS)
             for snt_msg in snt_msgs:
                 try:
@@ -122,15 +122,15 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 1", url=client.invitelink),
-            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 2", url=client.invitelink2),
+            InlineKeyboardButton(text="Join Channel 1", url=client.invitelink),
+            InlineKeyboardButton(text="Join Channel 2", url=client.invitelink2),
         ]
     ]
     try:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text='ʀᴇʟᴏᴀᴅ',
+                    text='Try Again',
                     url=f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]

@@ -17,7 +17,7 @@ async def batch(client: Client, message: Message):
         if f_msg_id:
             break
         else:
-            await first_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote = True)
+            await first_message.reply("Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote = True)
             continue
 
     while True:
@@ -29,7 +29,7 @@ async def batch(client: Client, message: Message):
         if s_msg_id:
             break
         else:
-            await second_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote = True)
+            await second_message.reply("Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote = True)
             continue
 
 
@@ -51,7 +51,7 @@ async def link_generator(client: Client, message: Message):
         if msg_id:
             break
         else:
-            await channel_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is not taken from DB Channel", quote = True)
+            await channel_message.reply("Forwarded Post is not from my DB Channel or this Link is not taken from DB Channel", quote = True)
             continue
 
     base64_string = await encode(f"get-{msg_id * abs(client.db_channel.id)}")

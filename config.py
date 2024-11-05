@@ -54,7 +54,7 @@ FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>Hello {first} ✨\n\n Please
 
 #set your Custom Caption here, Keep None for Disable Custom Caption
 
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b><i>•Use VLC OR MX Player To Change Audio & Subtitle Accordingly.</i></b>")
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "{filename} <b><i>•Use VLC OR MX Player To Change Audio & Subtitle Accordingly.</i></b>")
 
 #set True if you want to prevent users from forwarding files from bot
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False

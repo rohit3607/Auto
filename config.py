@@ -44,7 +44,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 TIME = int(os.environ.get("TIME", "600"))
 
 #start message
-START_MSG = os.environ.get("START_MESSAGE", "<b>Hello {first} ✨\n\n I am a file store bot Powered by @AnimesStores ⚡️</b>")
+START_MSG = os.environ.get("START_MESSAGE", "<b>Hello {first} ✨\n\n I am a file store bot Powered by @Javpostr ⚡️</b>")
 try:
     ADMINS=[]
     for x in (os.environ.get("ADMINS", "").split()):
@@ -53,11 +53,11 @@ except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
 
 #Force sub message 
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>Hello {first} ✨\n\n Please Join Our Update Channels To Continue Watching Your Favourite Anime ⚡️</b>")
+FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>Hello {first} ✨\n\n Please Join Our Update Channels To Continue Watching Your Favourite Javs ⚡️</b>")
 
 #set your Custom Caption here, Keep None for Disable Custom Caption
 
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b> {filename} </b>")
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>  </b>")
 
 #set True if you want to prevent users from forwarding files from bot
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False

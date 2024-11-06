@@ -19,10 +19,10 @@ APP_ID = int(os.environ.get("APP_ID", ""))
 API_HASH = os.environ.get("API_HASH", "")
 
 #Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002382992141"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "6514796890"))
+OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
 #Port
 PORT = os.environ.get("PORT", "8046")

@@ -1,12 +1,13 @@
 # --- For-Bot-Working --------- #
 pyrofork==2.3.38
+pyrogram
 TgCrypto
 pyromod==1.5
 python-dotenv
 # --- For-Database ------------ #
 pymongo
 umongo
-humanize
 dnspython
 # --- For-Web-Response ------- #
 aiohttp
+asyncio

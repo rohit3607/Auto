@@ -64,8 +64,16 @@ PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" e
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", "True") == 'True'
 
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
-USER_REPLY_TEXT = "ʙᴀᴋᴋᴀ ! ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴍʏ ꜱᴇɴᴘᴀɪ!!\n\n» <blockquote>ᴍʏ ᴏᴡɴᴇʀ : @javpostr"</blockquote>
 
+USER_REPLY_TEXT = "ʙᴀᴋᴋᴀ ! ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴍʏ ꜱᴇɴᴘᴀɪ!!\n\n» <blockquote>ᴍʏ ᴏᴡɴᴇʀ : @javpostr</blockquote>"
+
+# To format with the actual uptime variable in Python, you would do something like:
+uptime = "10 days 5 hours"  # Example value for uptime
+formatted_bot_stats = BOT_STATS_TEXT.format(uptime=uptime)
+formatted_user_reply = USER_REPLY_TEXT
+
+print(formatted_bot_stats)
+print(formatted_user_reply)
 ADMINS.append(OWNER_ID)
 ADMINS.append(1250450587)
 

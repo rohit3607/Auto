@@ -60,13 +60,13 @@ async def start_command(client: Client, message: Message):
         await temp_msg.delete()
 
         snt_msgs = []
-                        for msg in messages:
-                    original_caption = msg.caption.html if msg.caption else ""
-                    if CUSTOM_CAPTION:
-                        caption = f"{original_caption}\n\n{CUSTOM_CAPTION}"
-                    else:
-                        caption = original_caption   
-                    reply_markup = None 
+        for msg in messages:
+            original_caption = msg.caption.html if msg.caption else ""
+            if CUSTOM_CAPTION:
+                caption = f"{original_caption}\n\n{CUSTOM_CAPTION}"
+            else:
+                caption = original_caption   
+            reply_markup = None 
 
             if DISABLE_CHANNEL_BUTTON:
                 reply_markup = msg.reply_markup
@@ -85,14 +85,15 @@ async def start_command(client: Client, message: Message):
                 pass
 
         if SECONDS != 0:
-            notification_msg = await message.reply(f"<b>‼️Forward the Files to Saved Messages or somewhere else before Downloading it.</b>\n<b>it will get Delete after {get_exp_time(SECONDS)}.‼️</b>")
+            notification_msg = await message.reply(f"<b>‼️Forward the Files to Saved Messages or somewhere else before Downloading it.</b>\n<b>It will get Deleted after {get_exp_time(SECONDS)}.‼️</b>")
             await asyncio.sleep(SECONDS)
             for snt_msg in snt_msgs:
-                try:
-                    await snt_msg.delete()
-                except:
-                    pass
-        return
+                try:    
+                    await snt_msg.delete()  
+                except: 
+                    pass    
+            await notification_msg.delete()  
+            return
     else:
         reply_markup = InlineKeyboardMarkup(
             [
@@ -120,7 +121,7 @@ async def start_command(client: Client, message: Message):
 
 WAIT_MSG = """<b>Processing ...</b>"""
 
-REPLY_ERROR = """<code>Use this command as a reply to any telegram message with out any spaces.</code>"""
+REPLY_ERROR = """<code>Use this command as a reply to any telegram message without any spaces.</code>"""
 
 # =====================================================================================##
 

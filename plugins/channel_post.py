@@ -19,24 +19,32 @@ async def channel_post(client: Client, message: Message):
         print(e)
         await reply_text.edit_text("Something went Wrong..!")
         return
-    
+
     # Generate base64-encoded ID
     converted_id = post_message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
-    
-    # Generate website or bot link
+
+    # Generate website and bot links
+    website_link = f"{WEBSITE_URL}?rohit_18={base64_string}" if WEBSITE_URL_MODE else None
+    bot_link = f"https://t.me/{client.username}?start={base64_string}"
+
+    # Create inline keyboard with both links
+    buttons = [
+        [InlineKeyboardButton("🔗 Website Link", url=website_link)] if WEBSITE_URL_MODE else [],
+        [InlineKeyboardButton("🔁 Share Bot Link", url=f'https://telegram.me/share/url?url={bot_link}')],
+    ]
+
+    reply_markup = InlineKeyboardMarkup(buttons)
+
+    # Edit reply with both links
+    message_text = "<b>Here are your links:</b>\n\n"
     if WEBSITE_URL_MODE:
-        link = f"{WEBSITE_URL}?rohit_18={base64_string}"
-    else:
-        link = f"https://t.me/{client.username}?start={base64_string}"
-    
-    # Create inline keyboard
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
-    
-    # Edit reply with the generated link
-    await reply_text.edit(f"<b>Here is your link</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview=True)
-    
+        message_text += f"<b>Website:</b> {website_link}\n"
+    message_text += f"<b>Bot:</b> {bot_link}"
+
+    await reply_text.edit(message_text, reply_markup=reply_markup, disable_web_page_preview=True)
+
     # Optionally update the post's reply markup
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(reply_markup)
@@ -45,21 +53,24 @@ async def channel_post(client: Client, message: Message):
 async def new_post(client: Client, message: Message):
     if DISABLE_CHANNEL_BUTTON:
         return
-    
+
     # Generate base64-encoded ID
     converted_id = message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
-    
-    # Generate website or bot link
-    if WEBSITE_URL_MODE:
-        link = f"{WEBSITE_URL}?rohit_18={base64_string}"
-    else:
-        link = f"https://t.me/{client.username}?start={base64_string}"
-    
-    # Create inline keyboard
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
-    
+
+    # Generate website and bot links
+    website_link = f"{WEBSITE_URL}?rohit_18={base64_string}" if WEBSITE_URL_MODE else None
+    bot_link = f"https://t.me/{client.username}?start={base64_string}"
+
+    # Create inline keyboard with both links
+    buttons = [
+        [InlineKeyboardButton("🔗 Website Link", url=website_link)] if WEBSITE_URL_MODE else [],
+        [InlineKeyboardButton("🔁 Share Bot Link", url=f'https://telegram.me/share/url?url={bot_link}')],
+    ]
+
+    reply_markup = InlineKeyboardMarkup(buttons)
+
     # Update the message's reply markup
     try:
         await message.edit_reply_markup(reply_markup)
